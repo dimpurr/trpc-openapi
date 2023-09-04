@@ -115,14 +115,14 @@ export const createOpenApiNodeHttpHandler = <
 
       // if supported, coerce all string values to correct types
       if (zodSupportsCoerce) {
-        if (instanceofZodTypeObject(unwrappedSchema)) {
-          Object.values(unwrappedSchema.shape).forEach((shapeSchema) => {
-            const unwrappedShapeSchema = unwrapZodType(shapeSchema, false);
-            if (instanceofZodTypeCoercible(unwrappedShapeSchema)) {
-              unwrappedShapeSchema._def.coerce = true;
-            }
-          });
-        }
+          if (instanceofZodTypeObject(unwrappedSchema)) {
+              Object.values(unwrappedSchema.shape).forEach((shapeSchema) => {
+                  const unwrappedShapeSchema = unwrapZodType(shapeSchema, false);
+                  if (instanceofZodTypeCoercible(unwrappedShapeSchema) && 'coerce' in unwrappedShapeSchema._def) {
+                      unwrappedShapeSchema._def.coerce = true;
+                  }
+              });
+          }
       }
 
       ctx = await createContext?.({ req, res });

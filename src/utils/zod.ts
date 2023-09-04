@@ -102,7 +102,7 @@ export const instanceofZodTypeLikeString = (_type: z.ZodTypeAny): _type is ZodTy
 
 export const zodSupportsCoerce = 'coerce' in z;
 
-export type ZodTypeCoercible = z.ZodNumber | z.ZodBoolean | z.ZodBigInt | z.ZodDate | z.ZodArray;;
+export type ZodTypeCoercible = z.ZodNumber | z.ZodBoolean | z.ZodBigInt | z.ZodDate | z.ZodArray<any>;
 
 export const instanceofZodTypeCoercible = (_type: z.ZodTypeAny): _type is ZodTypeCoercible => {
   const type = unwrapZodType(_type, false);
