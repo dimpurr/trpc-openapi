@@ -81,7 +81,8 @@ const instanceofZodTypeCoercible = (_type) => {
     return ((0, exports.instanceofZodTypeKind)(type, zod_1.z.ZodFirstPartyTypeKind.ZodNumber) ||
         (0, exports.instanceofZodTypeKind)(type, zod_1.z.ZodFirstPartyTypeKind.ZodBoolean) ||
         (0, exports.instanceofZodTypeKind)(type, zod_1.z.ZodFirstPartyTypeKind.ZodBigInt) ||
-        (0, exports.instanceofZodTypeKind)(type, zod_1.z.ZodFirstPartyTypeKind.ZodDate));
+        (0, exports.instanceofZodTypeKind)(type, zod_1.z.ZodFirstPartyTypeKind.ZodDate) ||
+        (0, exports.instanceofZodTypeKind)(type, zod_1.z.ZodFirstPartyTypeKind.ZodArray));
 };
 exports.instanceofZodTypeCoercible = instanceofZodTypeCoercible;
 //# sourceMappingURL=zod.js.map

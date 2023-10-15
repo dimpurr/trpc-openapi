@@ -7,7 +7,7 @@ export const instanceofZodType = (type: any): type is z.ZodTypeAny => {
 export const instanceofZodTypeKind = <Z extends z.ZodFirstPartyTypeKind>(
   type: z.ZodTypeAny,
   zodTypeKind: Z,
-): type is InstanceType<typeof z[Z]> => {
+): type is InstanceType<(typeof z)[Z]> => {
   return type?._def?.typeName === zodTypeKind;
 };
 
@@ -102,7 +102,12 @@ export const instanceofZodTypeLikeString = (_type: z.ZodTypeAny): _type is ZodTy
 
 export const zodSupportsCoerce = 'coerce' in z;
 
-export type ZodTypeCoercible = z.ZodNumber | z.ZodBoolean | z.ZodBigInt | z.ZodDate | z.ZodArray<any>;
+export type ZodTypeCoercible =
+  | z.ZodNumber
+  | z.ZodBoolean
+  | z.ZodBigInt
+  | z.ZodDate
+  | z.ZodArray<z.ZodTypeAny>;
 
 export const instanceofZodTypeCoercible = (_type: z.ZodTypeAny): _type is ZodTypeCoercible => {
   const type = unwrapZodType(_type, false);
@@ -110,6 +115,7 @@ export const instanceofZodTypeCoercible = (_type: z.ZodTypeAny): _type is ZodTyp
     instanceofZodTypeKind(type, z.ZodFirstPartyTypeKind.ZodNumber) ||
     instanceofZodTypeKind(type, z.ZodFirstPartyTypeKind.ZodBoolean) ||
     instanceofZodTypeKind(type, z.ZodFirstPartyTypeKind.ZodBigInt) ||
-    instanceofZodTypeKind(type, z.ZodFirstPartyTypeKind.ZodDate)
+    instanceofZodTypeKind(type, z.ZodFirstPartyTypeKind.ZodDate) ||
+    instanceofZodTypeKind(type, z.ZodFirstPartyTypeKind.ZodArray)
   );
 };

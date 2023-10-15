@@ -10,9 +10,9 @@
     "openapi",
     "swagger"
   ],
-  "homepage": "https://github.com/jlalmes/trpc-openapi",
+  "homepage": "https://github.com/dimpurr/trpc-openapi",
   "repository": "github:jlalmes/trpc-openapi",
-  "bugs": "https://github.com/jlalmes/trpc-openapi/issues",
+  "bugs": "https://github.com/dimpurr/trpc-openapi/issues",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "workspaces": [
@@ -38,6 +38,7 @@
     "lodash.clonedeep": "^4.5.0",
     "node-mocks-http": "^1.12.2",
     "openapi-types": "^12.1.1",
+    "trpc-openapi": "^1.2.0",
     "zod-to-json-schema": "^3.21.1"
   },
   "devDependencies": {

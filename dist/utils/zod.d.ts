@@ -17,7 +17,7 @@ type NativeEnumType = {
 export type ZodTypeLikeString = z.ZodString | z.ZodOptional<ZodTypeLikeString> | z.ZodDefault<ZodTypeLikeString> | z.ZodEffects<ZodTypeLikeString, unknown, unknown> | z.ZodUnion<[ZodTypeLikeString, ...ZodTypeLikeString[]]> | z.ZodIntersection<ZodTypeLikeString, ZodTypeLikeString> | z.ZodLazy<ZodTypeLikeString> | z.ZodLiteral<string> | z.ZodEnum<[string, ...string[]]> | z.ZodNativeEnum<NativeEnumType>;
 export declare const instanceofZodTypeLikeString: (_type: z.ZodTypeAny) => _type is ZodTypeLikeString;
 export declare const zodSupportsCoerce: boolean;
-export type ZodTypeCoercible = z.ZodNumber | z.ZodBoolean | z.ZodBigInt | z.ZodDate | z.ZodArray<any>;
+export type ZodTypeCoercible = z.ZodNumber | z.ZodBoolean | z.ZodBigInt | z.ZodDate | z.ZodArray<z.ZodTypeAny>;
 export declare const instanceofZodTypeCoercible: (_type: z.ZodTypeAny) => _type is ZodTypeCoercible;
 export {};
 //# sourceMappingURL=zod.d.ts.map
